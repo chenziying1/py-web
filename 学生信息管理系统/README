@@ -1,0 +1,8 @@
+1.学生信息管理系统功能：
+    1.管理学生信息：增删改查
+    2.echarts可视化
+    3.会话保持/登录/登出
+2.static文件夹保存静态文件
+  templates文件夹保存html代码
+  main.py是程序源代码及程序入口
+3.涉及到echarts，js，css，html，py
