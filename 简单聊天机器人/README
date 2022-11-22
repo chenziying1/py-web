@@ -1,0 +1,6 @@
+1.简单聊天机器人功能：
+    1.在输入框中输入你的语句,机器人会自动回答你的问题
+2.static文件夹保存静态文件
+  templates文件夹保存html代码
+  sample.py是程序源代码及程序入口
+3.涉及到chatterbot，js，html，py
