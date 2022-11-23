@@ -44,8 +44,6 @@ def index():
             transcript = text
 
 
-
-
     return render_template("index.html",transcript=transcript)
 
 
