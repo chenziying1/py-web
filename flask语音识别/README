@@ -1,0 +1,6 @@
+1.flask语音识别功能：
+    1.选择wav语音文件，提交后会自动显示翻译结果
+2.static文件夹保存静态文件
+  templates文件夹保存html代码
+  app.py是程序源代码及程序入口
+3.涉及到speech_recognition，html，py
