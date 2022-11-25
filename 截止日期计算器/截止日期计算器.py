@@ -8,32 +8,28 @@
 from flask import Flask,redirect,url_for,render_template,request,session,flash
 #实现类似与cookie登录的效果
 from datetime import timedelta
-#数据库操作
-from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.secret_key = "czy"
-#半永久会话,保持五天,也可以改成minutes=5，五分钟
 app.permanent_session_lifetime = timedelta(days=5)
-#数据库消息配置
-app.config[ 'SQLALCHEMY_DATABASE_URI' ] = 'sqlite:///users.sqlite3'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-#创建数据库对象
-db = SQLAlchemy(app)
 
-#创建数据库模型
-class users(db.Model):
-    _id = db.Column("id",db.Integer,primary_key = True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(100))
 
-    def __init__(self,name,email):
-        self.name = name
-        self.email = email
+text_data = []
 
-@app.route('/')
+
+@app.route('/',methods = ["POST","GET"])
 def home():
-    return render_template("home.html")
+    global text_data
+    if request.method == "POST":
+        user = request.form.get('nm')
+        names = request.form.get('nc')
+        qingchu = request.form.get('qingchu')
+        temp = [user,names]
+        text_data.append(temp)
+        if qingchu:
+            text_data = []
+        return render_template("home.html",endtime = user,names = names,text_data=text_data)
+    return render_template("home.html",endtime = "2023/1/15 00:00:00",names="")
 
 @app.route('/login',methods = ["POST","GET"])
 def login():
@@ -45,16 +41,6 @@ def login():
         session["user"] = user
         #半永久会话
         session.permanent = True
-
-        #执行数据库语句
-        found_user = users.query.filter_by(name=user).first()
-        if found_user:
-            session["email"] = found_user.email
-        else:
-            usr = users(user,"")
-            db.session.add(usr)
-            db.session.commit()
-
         #显示已经登录成功
         flash("login successful!","info")
         return redirect(url_for("user"))
@@ -77,10 +63,6 @@ def user():
         if request.method == "POST":
             email = request.form["email"]
             session["email"] = email
-
-            found_user = users.query.filter_by(name=user).first()
-            found_user.email = email
-            db.session.commit()
             flash("email is saved!")
         else:
             if "email" in session:
@@ -101,21 +83,8 @@ def logout():
 
 @app.route("/view")
 def view():
-    return render_template("view.html",values=users.query.all())
+    return render_template("view.html")
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(port=8000,debug=True)
 
-
-
-
-'''
-@app.route("/<name>")
-def user(name):
-    return "hello {}!".format(name)
-
-@app.route('/admin/')
-def admin():
-    return redirect(url_for("user",name="Admin"))
-'''
