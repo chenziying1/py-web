@@ -17,6 +17,8 @@
 输出：""
 解释：输入不存在公共前缀。
 '''
+from typing import List
+
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
