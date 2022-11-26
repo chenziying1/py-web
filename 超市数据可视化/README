@@ -1,0 +1,4 @@
+1.超市数据可视化功能：
+    1.将销售数据保存进xslx中，运行程序，在web app上显示可操作的数据可视化图表
+2.app.py是程序源代码及程序入口
+3.涉及到pandas，plotly，streamlit，py,virtualenv
