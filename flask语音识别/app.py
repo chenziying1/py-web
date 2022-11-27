@@ -43,7 +43,6 @@ def index():
                 print("识别错误; {0}".format(e))
             transcript = text
 
-
     return render_template("index.html",transcript=transcript)
 
 
