@@ -13,9 +13,13 @@ nums = input()
 
 targets = [chr(ord('a') + i) for i in range(26)]
 
-for i in keyword:
-    targets.remove(i)
-keyword = list(keyword) + targets
+if keyword != "":
+    for i in keyword:
+        targets.remove(i)
+    keyword = list(keyword) + targets
+else:
+    keyword = targets
+
 
 target = [["" for j in range(5)] for i in range(5)]
 
@@ -39,13 +43,8 @@ for i in range(0, n-1, 2):
             C, D = target[j].index(nums[i + 1]), j
             print(C,D)
 
-    if A == C:
+    if A == C or B == D :
         ans += nums[i+1]
-        ans += nums[i]
-        A, B, C, D = "None", "None", "None", "None"
-
-    elif B == D :
-        ans += nums[i + 1]
         ans += nums[i]
         A, B, C, D = "None", "None", "None", "None"
 
