@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class="container">
+  <h1>添加信息</h1>
+  <hr>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">提交信息并在线预览</button>
+  </form>
+</div>
+{% endblock %}

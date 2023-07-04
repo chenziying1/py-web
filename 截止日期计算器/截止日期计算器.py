@@ -49,7 +49,7 @@ def login():
         if "user" in session:
             flash("aready login in!", "info")
             return redirect(url_for("user"))
-        return render_template("login.html")
+        return render_template("layout.html")
 
 
 @app.route('/user',methods = ["POST","GET"])
@@ -70,7 +70,7 @@ def user():
         return render_template("user.html",email = email)
     else:
         flash("you are not login in!", "info")
-        return render_template("login.html")
+        return render_template("layout.html")
 
 #清除会话，退出登录
 @app.route("/logout")

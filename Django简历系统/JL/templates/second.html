@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的简历是一个引导响应式网站</title>
+<!--mobile apps-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="My Resume Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--mobile apps-->
+<!--Custom Theme files-->
+<link rel="shortcut icon" href="/static/second/images/your_ico.ico" type="image/x-icon">
+<link rel="icon" href="/static/second/images/your_ico.ico" type="image/x-icon">
+<link href="/static/second/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/static/second/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="/static/second/css/swipebox.css">
+<!--//Custom Theme files-->
+<!--js-->
+<script src="/static/second/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="/static/second/js/move-top.js"></script>
+<script type="text/javascript" src="/static/second/js/easing.js"></script>
+<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+</script>
+<!--//end-smooth-scrolling-->
+</head>
+<body>
+	<!--banner-->
+	<div id="home" class="banner">
+		<div class="banner-info">
+			<div class="container">
+				<div class="col-md-4 header-left">
+					{% if file %}
+						<img class="img-responsive" src="http://127.0.0.1:8000/{{ media_url }}{{ file }}"  alt="404"/>
+					{% else %}
+						<img src="/static/second/images/img1.jpg" alt=""/>
+					{% endif %}
+				</div>
+				<div class="col-md-8 header-right">
+					<h2>Hello</h2>
+					{% if name %}
+						<h1>{{ name }}</h1>
+					{% else %}
+						<h1>My name is Fanbingbing</h1>
+					{% endif %}
+
+					<ul class="address">
+						<li>
+							<ul class="address-text">
+								<li><b>联系电话 </b></li>
+								{% if phone %}
+									<li>{{ phone }}</li>
+								{% else %}
+									<li>123-456-7890</li>
+								{% endif %}
+							</ul>
+						</li>
+						<li>
+							<ul class="address-text">
+								<li><b>个人邮箱 </b></li>
+								{% if email %}
+									<li><a href="{{ email }}">{{ email }}</a></li>
+								{% else %}
+									<li><a href="mailto:info@example.com">mail@example.com</a></li>
+								{% endif %}
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//banner-->
+	<!--top-nav-->
+	<div class="top-nav wow">
+		<div class="container">
+			<div class="navbar-header logo">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					导航
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="menu">
+					<ul class="nav navbar">
+						<li><a href="#about" class="scroll">关于我</a></li>
+						<li><a href="#work" class="scroll">教育背景</a></li>
+						<li><a href="#education" class="scroll">工作经历</a></li>
+						<li><a href="#skills" class="scroll">项目经历</a></li>
+						<li><a href="#projects" class="scroll">技能证书</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<!--//top-nav-->
+	<!--about-->
+	<div id="about" class="about">
+		<div class="container">
+			<h3 class="title"> 关于我</h3>
+			<div class="col-md-8 about-left">
+				{% if message %}
+					<p class="abt-para" id = "fssss5">{{ message }}</p>
+				{% else %}
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具有较强的用户研究、市场分析能力，对中国用户的社会形态、生活方式有丰富的认识和独特的见解;对色彩、材质感觉细腻而敏感，具有色彩、材质、表面处理的研究和趋势分析能力，对当代中国的色彩具有深入的理解和自己的观点;能够准确把握社会文化、流行趋势，对中国现代社会及传统文化背景有仔细的研究和深刻的理解;对设计工作充满热情，有较强的设计能力，设计的产品范围广泛。</p>
+				{% endif %}
+			</div>
+			<div class="col-md-4 about-right">
+				<ul>
+					<h5>技能证书</h5>
+					{% if jinengzhengshu %}
+						<li id = "fssss4"><span class="glyphicon glyphicon-menu-right" ></span>{{ jinengzhengshu }}</li>
+					{% else %}
+						<li><span class="glyphicon glyphicon-menu-right" ></span> 河南工业大学专科学历</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span> 郑州大学自考本科学历</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span> 高级UI设计师证书</li>
+						<li><span class="glyphicon glyphicon-menu-right"></span> 千典公司品牌最佳设计师荣誉</li>
+					{% endif %}
+				</ul>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<!--//about-->
+	<!--work-experience-->
+	<div id="work" class="work">
+		<div class="container">
+			<h3 class="title">工作经历</h3>
+			{% if gongzhuojingli %}
+				<p class="abt-para" id = "fssss3">{{ gongzhuojingli }}</p>
+			{% else %}
+				<p class="abt-para">
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+		</div>
+	</div>
+	<!--//work-experience-->
+	<!--education-->
+	<div id="education" class="education">
+		<div class="container">
+			<h3 class="title">教育背景</h3>
+			{% if jiaoyubeijing %}
+				<p class="abt-para" id = "fssss2">{{ jiaoyubeijing }}</p>
+			{% else %}
+				<p class="abt-para">
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+		</div>
+	</div>
+	<!--//education-->
+	<!--skills-->
+	<div id="skills" class="skills">
+		<div class="container">
+			<h3 class="title">项目经历</h3>
+			{% if xiangmujingli %}
+				<p class="abt-para" id = "fssss">{{ xiangmujingli }}</p>
+			{% else %}
+				<p class="abt-para">
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+		</div>
+	</div>
+
+
+
+		<div class="not-for-pdf">
+			<h3>修改样式</h3>
+			<hr />
+			<div class="form-group">
+					<label for="font-size">字体大小:</label>
+					<input type="range" class="form-control-range" id="font-size" min="12" max="48" value="16">
+			</div>
+
+			<div class="form-group">
+					<label for="font-color">字体颜色:</label>
+					<input type="color" class="form-control" id="font-color" value="#000">
+			</div>
+
+			<div class="form-group">
+					<label for="bg-color">背景颜色:</label>
+					<input type="color" class="form-control" id="bg-color" value="#fff">
+			</div>
+		</div>
+	<div class="not-for-pdf">
+		<button id="downloadPdfButton" class="btn btn-primary" >下载简历</button>
+		<button class="btn btn-primary"><a href="http://127.0.0.1:8000/" style="color: white;">回到主页</a></button>
+		<button class="btn btn-primary" onclick="savePage()">分享简历</button>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        var downloadPdfButton = document.getElementById('downloadPdfButton');
+        downloadPdfButton.addEventListener('click', function() {
+          // 首先，隐藏所有不需要转换的元素
+          document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+            el.style.display = 'none';
+          });
+          // 开始转换
+          html2canvas(document.body).then(function(canvas) {
+            // 恢复隐藏元素的显示状态
+            document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+              el.style.display = '';
+            });
+            // 建立pdf文件
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', 'a4');
+            pdf.addImage(imgData, 'PNG', 0, 0, 211, 298);
+            pdf.save("download.pdf");
+          });
+        });
+
+        function savePage() {
+			  // 获取当前网页的HTML代码
+			  var htmlCode = document.documentElement.innerHTML;
+
+			  // 创建XMLHttpRequest对象
+			  var xhr = new XMLHttpRequest();
+			  xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				  // 将视图函数返回的文件名保存在变量中
+				  var fileName = xhr.responseText;
+				  alert("复制以下链接，分享给好友即可在线查看简历网页：http:127.0.0.1:8000/view_page/" + fileName);
+				  // 跳转到在线查看页面
+				  window.open('/view_page/' + fileName);
+				}
+			  }
+
+			  // 获取CSRF令牌
+			  var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+			  // 发送POST请求到视图函数
+			  xhr.open('POST', '/save_page/');
+			  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			  // 将CSRF令牌添加到请求头中
+			  xhr.setRequestHeader('X-CSRFToken', csrfToken);
+			  xhr.send('html_code=' + encodeURIComponent(htmlCode));
+			}
+    </script>
+
+
+	<script type="text/javascript">
+		const fontSizeInput = document.getElementById('font-size');
+		const fontColorInput = document.getElementById('font-color');
+		const bgColorInput = document.getElementById('bg-color');
+
+		fontSizeInput.addEventListener('input', () => {
+			fssss.style.fontSize = fontSizeInput.value + 'px';
+			fssss2.style.fontSize = fontSizeInput.value + 'px';
+			fssss3.style.fontSize = fontSizeInput.value + 'px';
+			fssss4.style.fontSize = fontSizeInput.value + 'px';
+			fssss5.style.fontSize = fontSizeInput.value + 'px';
+		});
+
+		fontColorInput.addEventListener('input', () => {
+			fssss.style.color = fontColorInput.value;
+			fssss2.style.fontSize = fontColorInput.value;
+			fssss3.style.fontSize = fontColorInput.value;
+			fssss4.style.fontSize = fontColorInput.value;
+			fssss5.style.fontSize = fontColorInput.value;
+		});
+
+		bgColorInput.addEventListener('input', () => {
+			document.body.style.backgroundColor = bgColorInput.value;
+		});
+	</script>
+
+	<!--smooth-scrolling-of-move-up-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+		});
+	</script>
+
+    <script src="/static/second/js/bootstrap.js"></script>
+</body>
+</html>

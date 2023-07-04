@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PDF to HTML Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.7.570/build/pdf.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="pdf.js"></script>
+    <script src="pdf.worker.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>PDF to HTML Converter</h1>
+      <form>
+        <div class="form-group">
+          <label for="pdfFile">PDF file:</label>
+          <input type="file" class="form-control-file" id="pdfFile">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="convert()">Convert</button>
+      </form>
+      <div id="output"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.7.570/build/pdf.min.js"></script>
+<script src="pdf.js"></script>
+<script src="pdf.worker.js"></script>
+<script>
+  function convert() {
+    var file = document.getElementById("pdfFile").files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      reader.onload = function(event) {
+        var data = new Uint8Array(event.target.result);
+        pdfjsLib.getDocument(data).promise.then(function(pdf) { // Updated line
+          var pages = [];
+          for (var i = 1; i <= pdf.numPages; i++) {
+            pages.push(i);
+          }
+          Promise.all(pages.map(function(num) {
+            return pdf.getPage(num).then(function(page) {
+              var scale = 1.5;
+              var viewport = page.getViewport({ scale: scale });
+              var canvas = document.createElement("canvas");
+              var context = canvas.getContext("2d");
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+              var renderContext = {
+                canvasContext: context,
+                viewport: viewport
+              };
+              return page.render(renderContext).promise.then(function() {
+                return canvas.toDataURL();
+              });
+            });
+          })).then(function(images) {
+            var html = "";
+            images.forEach(function(image) {
+              html += '<img src="' + image + '">';
+            });
+            $("#output").html(html);
+          });
+        });
+      };
+    }
+  }
+</script>
+
+  </body>
+</html>

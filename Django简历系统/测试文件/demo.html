@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>生成PDF文件</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+</head>
+
+<body>
+  <h1>这是一个示例页面</h1>
+  <p>这是示例页面的内容。</p>
+  <button id="downloadButton">Download as PDF</button>
+
+  <script>
+      // Get the download button element
+      const downloadButton = document.getElementById('downloadButton');
+
+      // Add a click event listener to the download button
+      downloadButton.addEventListener('click', () => {
+        // Get the current page as HTML
+        const page = document.documentElement;
+
+        // Set the options for PDF generation
+        const options = {
+          filename: 'page.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        // Use html2pdf.js library to generate PDF
+        html2pdf().set(options).from(page).save();
+      });
+    </script>
+
+</body>
+
+</html>

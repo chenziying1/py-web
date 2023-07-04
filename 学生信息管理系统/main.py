@@ -38,7 +38,7 @@ def login():
         # 显示已经登录成功
         flash("login successful!", "info")
         return redirect('/home')
-    return render_template("login.html")
+    return render_template("layout.html")
 
 @app.route('/admin')
 def admin():
@@ -46,7 +46,7 @@ def admin():
         return render_template("admin.html",students=students,a = a)
     else:
         flash("you are not login in!", "info")
-        return render_template("login.html")
+        return render_template("layout.html")
 
 @app.route('/add',methods=["POST","GET"])
 def add():

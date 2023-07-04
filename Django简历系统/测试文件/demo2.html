@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Download PDF</title>
+    <!-- 引入Bootstrap库 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- 引入jsPDF库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#downloadBtn').on('click', function() {
+                // 新建一个jsPDF对象
+                var pdf = new jsPDF('p', 'pt', 'letter');
+                // 将当前页面的HTML转换成canvas图像
+                html2canvas(document.body).then(function(canvas) {
+                    // 将canvas图像转换成pdf格式
+                    pdf.addImage(canvas, 'JPEG', 0, 0);
+                    // 下载pdf文件并命名为"document.pdf"
+                    pdf.save('document.pdf');
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Download PDF</h1>
+        <button type="button" id="downloadBtn" class="btn btn-primary">Download PDF</button>
+        <p>Click the button above to download the current page as a PDF file.</p>
+    </div>
+<div class="container-fluid" style="max-width: 600px; height: 800px;">
+  <div class="row justify-content-between">
+    <div class="col-md-4 my-3">
+      <a href="https://www.example.com">
+        <img src="1.png" alt="Example image 1" style="max-width: 100%; height: auto;">
+      </a>
+    </div>
+    <div class="col-md-4 my-3">
+      <a href="https://www.example.com">
+        <img src="1.png" alt="Example image 2" style="max-width: 100%; height: auto;">
+      </a>
+    </div>
+    <div class="col-md-4 my-3">
+
+      <a href="https://www.example.com">
+          <div class="image-overlay">
+            <img src="1.png" alt="Example image 3" style="max-width: 100%; height: auto;">
+          </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .image-overlay {
+    position: relative;
+    display: inline-block;
+  }
+  .image-overlay img {
+    display: block;
+  }
+  .image-overlay:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .image-overlay:hover:before {
+    opacity: 1;
+  }
+</style>
+
+
+
+</body>
+</html>

@@ -24,7 +24,7 @@ def parseonepage(html):
           return ans
                     
 def save(item):
-          with open('top250.txt','at',encoding='utf-8') as f:
+          with open('top250.books','at',encoding='utf-8') as f:
                     f.write(item)
           f.close()
 

@@ -1,0 +1,100 @@
+1._thread 模块
+import _thread
+
+thread.start_new_thread 模块会直接开启一个新线程，第一个参数是指定要执行的函数，第二个参数是往执行函数里传递参数（类型必须是元组）
+
+def fun(a,b):
+	print(a)
+	time.sleep(b)
+for i in range(1,8):
+	_thread.start_new_thread(fun,(i+1,'a'*(i+1)))
+
+2.线程和锁
+程序本身无法感知是否有线程正在运行，是否执行完毕,所以需要线程锁
+创建锁，allocate_lock
+获取锁，锁对象的acquire
+释放锁，锁对象的release
+
+lock1 = _thread.allocate_lock()
+lock1.acquire()#相当于把锁锁上
+lock.release()
+while lock1.locked():#判断锁有没有释放
+	pass
+
+3.高级线程模块
+import threading
+
+thread1 = threading.Thread(target = fun,args = (10,4))
+thread1.start()#启动线程
+thread1.join()#等待线程执行完毕
+
+4.线程对象
+class mythread(object):
+	def __init__(self,func,args):
+		self.func = func
+		self.args = args
+	def __call__(self):
+		self.func(*self.args)
+
+def func(index,sec):
+	print(ctime())
+	sleep(sec)
+
+thread1 = threading.Thread(target = mythread(func,(10,4)))
+thread1.start()
+thread1.join()
+
+threading.Thread的target关键字不仅可以是一个函数，还可以是一个对象。#对自己好点，真正喜欢你的人，往往只有你自己
+
+5.从thread类继承
+class mythread(threading.Thread):
+	def __init__(self,func,args,name=''):
+		super().__init__(target=func,name=name,args = args)
+
+	def run(self):
+		self._target(*self._args)
+
+def func(index,sec):
+	print(ctime())
+	sleep(sec)
+
+thread1 = mythread(func,(10,4),'线程1')
+thread1.start()
+thread1.join()
+
+6.线程同步
+多个线程同时进行，共享数据，导致数据多次执行变得与预期不符
+
+7.线程锁
+讲一段代码锁住，一旦锁住，除非释放线程锁，否则其他任何代码都无法再次获取得锁权限
+可以使用线程锁将不需要同时进行读写的数据，代码段写成原子函数再通过线程锁锁住
+lock = Lock()
+def fun():
+	lock.acquire()
+	for i in range(5):
+		sleep(1)
+	lock.release()
+
+def main():
+	for i in range(3):
+		Thread(target=fun).start()
+
+8.信号量
+一个计数器，用于记录资源消耗情况
+资源消耗时递减，资源释放时递增
+
+from threading import BoundedSemaphore
+semaphore = BoundedSemaphore(3)#创建信号量对象，并设置计数器的最大值
+print(semaphore._value)
+semaphore.acquire()#获取资源，计数器减一
+semaphore.release()#释放资源，计数器加一
+
+9.多进程
+from multiprocessing import Pool
+pool = Pool(processes = 4)
+pool.map(get_value,values)
+
+
+
+
+

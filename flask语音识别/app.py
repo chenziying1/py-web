@@ -4,14 +4,17 @@
 # outhor:czy
 # email:1060324818@qq.com
 from pprint import pprint
-
 from flask import Flask,render_template,request,redirect
 import speech_recognition as sr
+
+
 
 app = Flask(__name__)
 
 @app.route("/",methods = ["GET","POST"])
 def index():
+    import speech
+    speech.say("你好呀!")
     transcript = ""
     if request.method == "POST":
         print("we have a post!")
@@ -43,7 +46,7 @@ def index():
                 print("识别错误; {0}".format(e))
             transcript = text
 
-    return render_template("index.html",transcript=transcript)
+    return render_template("frist.html",transcript=transcript)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,5 @@
+1.碰到一个很有意思的道友，爬取百度翻译的时候总共有三个url地址可以查找
+https://fanyi.baidu.com/transapi 查句子
+https://fanyi.baidu.com/sug 查单词
+https://fanyi.baidu.com/v2transapi?from=en&to=zh 应该是什么都可以查，但有个巨大的缺点，需要在代码中加上一个sign
+这个sign是在人家js代码中生成的，把生成sign的代码提取出来形成自己的js文件，再在py中先远行这个js文件，然后才是常规的pypost请求

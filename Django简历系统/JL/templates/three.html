@@ -1,0 +1,236 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>简历模板</title>
+    <link rel="stylesheet" href="/static/three/css/base.css" media="screen and (min-width: 840px)" />
+    <link rel="stylesheet" href="/static/three/css/style.css" media="screen and (max-width: 839px)"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div class="header">
+        <div class="header-title">
+            {% if name %}
+                <h1>{{ name }}</h1>
+            {% else %}
+                <h1>XXX</h1>
+            {% endif %}
+            <span class="author-intro"></span>
+        </div>
+        <div class="header-list">
+            <div class="header-left">
+                <ul>
+                    {% if phone %}
+                        <li>{{ phone }}</li>
+                    {% else %}
+                        <li>123-456-7890</li>
+                    {% endif %}
+                    {% if email %}
+                        <li><a href="{{ email }}">{{ email }}</a></li>
+                    {% else %}
+                        <li><a href="mailto:info@example.com">mail@example.com</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="clear-fix"></div>
+        </div>
+    </div>
+
+    <div class="person-info">
+        <span class="icon"></span>
+        <span class="subtitle">关于我</span>
+        <span class="long-line"></span>
+        <div class="detail-list">
+            {% if message %}
+					<p class="abt-para" id = "fssss5">{{ message }}</p>
+            {% else %}
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具有较强的用户研究、市场分析能力，对中国用户的社会形态、生活方式有丰富的认识和独特的见解;对色彩、材质感觉细腻而敏感，具有色彩、材质、表面处理的研究和趋势分析能力，对当代中国的色彩具有深入的理解和自己的观点;能够准确把握社会文化、流行趋势，对中国现代社会及传统文化背景有仔细的研究和深刻的理解;对设计工作充满热情，有较强的设计能力，设计的产品范围广泛。</p>
+            {% endif %}
+            <div class="clear-fix"></div>
+        </div>
+    </div>
+
+    <div class="pro-skill">
+        <span class="icon"></span>
+        <span class="subtitle">技能证书</span>
+        <span class="long-line"></span>
+        <div class="detail-list">
+            {% if jinengzhengshu %}
+                <p id = "fssss4">{{ jinengzhengshu }}</p>
+            {% else %}
+                <p> 河南工业大学专科学历</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="work-experience">
+        <span class="icon"></span>
+        <span class="subtitle">工作经历</span>
+        <span class="long-line"></span>
+        <div class="detail-list">
+			{% if gongzhuojingli %}
+				<p class="abt-para" id = "fssss3">{{ gongzhuojingli }}</p>
+			{% else %}
+				<p class="abt-para">
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+        </div>
+    </div>
+
+    <div class="open-source">
+        <span class="icon"></span>
+        <span class="subtitle">教育背景</span>
+        <span class="long-line"></span>
+        <div class="detail-list">
+			{% if jiaoyubeijing %}
+				<p class="abt-para" id = "fssss2">{{ jiaoyubeijing }}</p>
+			{% else %}
+				<p class="abt-para">
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+        </div>
+    </div>
+
+    <div class="honor-eva">
+        <div class="self-evaluation">
+            <span class="icon"></span>
+            <span class="subtitle">项目经历</span>
+            <span class="long-line short-line"></span>
+            <div class="detail-list">
+                {% if xiangmujingli %}
+                    <p class="abt-para" id = "fssss">{{ xiangmujingli }}</p>
+                {% else %}
+                    <p class="abt-para">
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="clear-fix"></div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        var windowWidth =  document.body.clientWidth;
+        var templateWidth = 320;
+
+        if(windowWidth < 840) {
+            var calcFontSize = (windowWidth) / templateWidth * 14 + "px";
+
+            document.getElementsByTagName("html")[0].style.fontSize = calcFontSize;
+        }
+    </script>
+	<div class="not-for-pdf">
+		<h3>修改样式</h3>
+		<hr />
+		<div class="form-group">
+				<label for="font-size">字体大小:</label>
+				<input type="range" class="form-control-range" id="font-size" min="12" max="48" value="16">
+		</div>
+
+		<div class="form-group">
+				<label for="font-color">字体颜色:</label>
+				<input type="color" class="form-control" id="font-color" value="#000">
+		</div>
+
+		<div class="form-group">
+				<label for="bg-color">背景颜色:</label>
+				<input type="color" class="form-control" id="bg-color" value="#fff">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const fontSizeInput = document.getElementById('font-size');
+		const fontColorInput = document.getElementById('font-color');
+		const bgColorInput = document.getElementById('bg-color');
+
+		fontSizeInput.addEventListener('input', () => {
+			fssss.style.fontSize = fontSizeInput.value + 'px';
+			fssss2.style.fontSize = fontSizeInput.value + 'px';
+			fssss3.style.fontSize = fontSizeInput.value + 'px';
+			fssss4.style.fontSize = fontSizeInput.value + 'px';
+			fssss5.style.fontSize = fontSizeInput.value + 'px';
+		});
+
+		fontColorInput.addEventListener('input', () => {
+			fssss.style.color = fontColorInput.value;
+			fssss2.style.fontSize = fontColorInput.value;
+			fssss3.style.fontSize = fontColorInput.value;
+			fssss4.style.fontSize = fontColorInput.value;
+			fssss5.style.fontSize = fontColorInput.value;
+		});
+
+		bgColorInput.addEventListener('input', () => {
+			document.body.style.backgroundColor = bgColorInput.value;
+		});
+	</script>
+	<div class="not-for-pdf">
+		<button id="downloadPdfButton" class="btn btn-primary" >下载简历</button>
+		<button class="btn btn-primary"><a href="http://127.0.0.1:8000/" style="color: white;">回到主页</a></button>
+		<button class="btn btn-primary" onclick="savePage()">分享简历</button>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        var downloadPdfButton = document.getElementById('downloadPdfButton');
+        downloadPdfButton.addEventListener('click', function() {
+          // 首先，隐藏所有不需要转换的元素
+          document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+            el.style.display = 'none';
+          });
+          // 开始转换
+          html2canvas(document.body).then(function(canvas) {
+            // 恢复隐藏元素的显示状态
+            document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+              el.style.display = '';
+            });
+            // 建立pdf文件
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', 'a4');
+            pdf.addImage(imgData, 'PNG', 0, 0, 211, 298);
+            pdf.save("download.pdf");
+          });
+        });
+
+        function generateString() {
+
+}
+
+        function savePage() {
+			  // 获取当前网页的HTML代码
+			  var htmlCode = document.documentElement.innerHTML;
+
+			  // 创建XMLHttpRequest对象
+			  var xhr = new XMLHttpRequest();
+			  xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				  // 将视图函数返回的文件名保存在变量中
+				  var fileName = xhr.responseText;
+				  alert("复制以下链接，分享给好友即可在线查看简历网页：http:127.0.0.1:8000/view_page/" + fileName);
+				  // 跳转到在线查看页面
+				  window.open('/view_page/' + fileName);
+				}
+			  }
+
+			  // 获取CSRF令牌
+			  var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+			  // 发送POST请求到视图函数
+			  xhr.open('POST', '/save_page/');
+			  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			  // 将CSRF令牌添加到请求头中
+			  xhr.setRequestHeader('X-CSRFToken', csrfToken);
+			  xhr.send('html_code=' + encodeURIComponent(htmlCode));
+			}
+    </script>
+</body>
+</html>

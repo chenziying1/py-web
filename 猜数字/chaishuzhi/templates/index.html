@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block body_block %}
+        <div style="text-align:center;position:absolute;margin: auto;top: 0;left: 0; bottom:0;right:0;">
+            <form id="message_form" method="post" action="">
+                {% csrf_token %}
+                猜数字(1-100):<input name="title">
+                <input type="submit" name="submit" value="submit"/>
+            </form>
+            <br />
+            {{ text }}
+            <p >你还有{{ chishu }}次机会</p>
+            <a href="">重置</a>
+        </div>
+{% endblock %}

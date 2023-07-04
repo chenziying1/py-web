@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flask 搜索引擎</title>
+    <link rel="stylesheet" href="static/styles/index.css">
+</head>
+<body>
+    <div id="speechContainer">
+        <h1>Search</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" name="text" />
+            <br>
+            <input type="submit" id="submitbutton" value="Search" />
+        </form>
+    </div>
+    {% if transcript != "" %}
+        <div id="speechTranscriptContainer">
+            <h1>Results</h1>
+            <p id="seechtext">{{transcript}}</p>
+        </div>
+    {% endif %}
+    {% if transcript2 != "" %}
+        <div id="speechTranscriptContainer2">
+            <p id="seechtext2">{{transcript2}}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

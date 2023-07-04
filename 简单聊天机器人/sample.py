@@ -15,7 +15,7 @@ def get_bot_response():
 
 @app.route("/")
 def index():
-	return render_template("index.html")
+	return render_template("frist.html")
 
 if __name__ == '__main__':
 	app.run(debug = True,port=45947)

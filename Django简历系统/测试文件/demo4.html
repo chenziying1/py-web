@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>My Bootstrap Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container" id="content">
+		<h1>Welcome to My Bootstrap Page</h1>
+
+		<p>This is a paragraph of text. You can change the font size, font color, and background color by adjusting the settings below.</p>
+
+		<div class="form-group">
+			<label for="font-size">Font Size:</label>
+			<input type="range" class="form-control-range" id="font-size" min="12" max="48" value="16">
+		</div>
+
+		<div class="form-group">
+			<label for="font-color">Font Color:</label>
+			<input type="color" class="form-control" id="font-color" value="#000">
+		</div>
+
+		<div class="form-group">
+			<label for="bg-color">Background Color:</label>
+			<input type="color" class="form-control" id="bg-color" value="#fff">
+		</div>
+	</div>
+
+	<script>
+		const fontSizeInput = document.getElementById('font-size');
+		const fontColorInput = document.getElementById('font-color');
+		const bgColorInput = document.getElementById('bg-color');
+		const contentDiv = document.getElementById('content');
+
+		fontSizeInput.addEventListener('input', () => {
+			contentDiv.style.fontSize = fontSizeInput.value + 'px';
+		});
+
+		fontColorInput.addEventListener('input', () => {
+			contentDiv.style.color = fontColorInput.value;
+		});
+
+		bgColorInput.addEventListener('input', () => {
+			document.body.style.backgroundColor = bgColorInput.value;
+		});
+	</script>
+</body>
+</html>

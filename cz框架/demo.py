@@ -52,7 +52,7 @@ class Index(SessionView):
         user = session.get_item(request, 'user')
 
         # 把 user 的值用模版引擎置换到页面中并返回
-        return simple_template("index.html", user=user, message="hello world!")
+        return simple_template("frist.html", user=user, message="hello world!")
 
 # 登录视图
 class Login(BaseView):
@@ -105,7 +105,7 @@ syl_url_map = [
     {
         'url': '/login',
         'view': Login,
-        'endpoint': 'test'
+        'endpoint': 'python链接mysqldemo'
     },
     {
         'url': '/logout',

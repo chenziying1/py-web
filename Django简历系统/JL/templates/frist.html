@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+{% csrf_token %}
+<html>
+<head>
+<title>Home</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta charset="UTF-8">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+<!-- 下载按钮 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+<!-- //for-mobile-apps -->
+<link href="/static/frist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/frist/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="static/frist/js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<!-- fonts -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'><!-- //fonts -->
+
+	<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="/static/frist/js/move-top.js"></script>
+		<script type="text/javascript" src="/static/frist/js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+	<!-- start-smoth-scrolling -->
+
+<!-- skills -->
+<script src="/static/frist/js/pie-chart.js" type="text/javascript"></script>
+<!-- skills -->
+<script type="text/javascript" src="/static/frist/js/numscroller-1.0.js"></script>
+
+</head>
+<body>
+	<div class="header-top">
+		<div class="container">
+			<ul>
+				<li><a class="scroll" href="#about"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Resume</a></li>
+				<li><a class="scroll" href="#emailme"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>Email me</a></li>
+				<li><a href="javascript:window.print()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span>Print CV</a></li>
+				<li><a href="#portfolioModal9" class="portfolio-link b-link-diagonal b-animate-go" data-toggle="modal">
+					<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>My Photo</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container">
+			<div class="col-md-8 header-left">
+				<div class="col-sm-5 pro-pic">
+					{% if file %}
+						<img class="img-responsive" src="http://127.0.0.1:8000/{{ media_url }}{{ file }}"  alt="404"/>
+					{% else %}
+						<img class="img-responsive" src="/static/images/default.png" alt=" "/>
+					{% endif %}
+				</div>
+				<div class="col-sm-5 pro-text">
+					{% if name %}
+						<h1>{{ name }}</h1>
+					{% else %}
+						<h1>john doe</h1>
+					{% endif %}
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="col-md-4 header-right ">
+				<ul class="list-left">
+					<li>Email:</li>
+					<li>Phone no:</li>
+				</ul>
+				<ul class="list-right">
+					<li>
+						{% if email %}
+							<a href="{{ email }}">{{ email }}</a>
+						{% else %}
+							<a href="mailto:info@example.com">mail@example.com</a>
+						{% endif %}
+					</li>
+					<li>
+						{% if phone %}
+							<p>{{ phone }}</p>
+						{% else %}
+							123-456-7890
+						{% endif %}
+					</li>
+
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- //banner -->
+<!-- about -->
+	<div id="about" class="about">
+		<div class="container">
+			<h3 class="tittle">关于我</h3>
+			{% if message %}
+				<p class="abt-para" id = "fssss5">{{ message }}</p>
+			{% else %}
+				<p class="abt-para">Passionate Web Designer</p>
+			{% endif %}
+		</div>
+		<div class="col-md-6 abt-left ">
+			<h2>教育背景</h2>
+			{% if jiaoyubeijing %}
+				<p class="abt-para" id = "fssss4">{{ jiaoyubeijing }}</p>
+			{% else %}
+				<p class="abt-para">
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+		</div>
+		<div class="col-md-6 abt-right ">
+			<div class="col-sm-4 abt-gd-left text-center">
+				<div id="demo-pie-1" class="pie-title-center" data-percent="25"> <span class="pie-value"></span> </div>
+			</div>
+			<div class="col-sm-4 abt-gd-left text-center">
+				<div id="demo-pie-3" class="pie-title-center" data-percent="75"> <span class="pie-value"></span> </div>
+			</div>
+			<div class="col-sm-4 abt-gd-left text-center">
+				<div id="demo-pie-4" class="pie-title-center" data-percent="15"> <span class="pie-value"></span> </div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+<!-- about -->
+<!-- education -->
+	<div class="employment">
+		<div class="container">
+			<h3 class="tittle ">工作经历</h3>
+			{% if gongzhuojingli %}
+				<p class="abt-para" id = "fssss3">{{ gongzhuojingli }}</p>
+			{% else %}
+				<p class="abt-para">
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- education -->
+<!-- num scroller -->
+	<div class="num-scroller">
+		<div class="container">
+			<h3 class="tittle ">项目经历</h3>
+			{% if xiangmujingli %}
+				<p class="abt-para" id = "fssss2">{{ xiangmujingli }}</p>
+			{% else %}
+				<p class="abt-para">
+					Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+				</p>
+			{% endif %}
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- //num scroller -->
+<!-- portfolio -->
+	<div class="portfolio">
+		<div class="container">
+			<h3 class="tittle ">技能证书</h3>
+				{% if jinengzhengshu %}
+					<p class="abt-para" id = "fssss">{{ jinengzhengshu }}</p>
+				{% else %}
+					<p class="abt-para">
+						Nemo enim ipsam voluptatem quia voluptas sit aspernatur .
+					</p>
+				{% endif %}
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+
+	<div class="not-for-pdf">
+		<h3>修改样式</h3>
+		<hr />
+		<div class="form-group">
+				<label for="font-size">字体大小:</label>
+				<input type="range" class="form-control-range" id="font-size" min="12" max="48" value="16">
+		</div>
+
+		<div class="form-group">
+				<label for="font-color">字体颜色:</label>
+				<input type="color" class="form-control" id="font-color" value="#000">
+		</div>
+
+		<div class="form-group">
+				<label for="bg-color">背景颜色:</label>
+				<input type="color" class="form-control" id="bg-color" value="#fff">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const fontSizeInput = document.getElementById('font-size');
+		const fontColorInput = document.getElementById('font-color');
+		const bgColorInput = document.getElementById('bg-color');
+
+		fontSizeInput.addEventListener('input', () => {
+			fssss.style.fontSize = fontSizeInput.value + 'px';
+			fssss2.style.fontSize = fontSizeInput.value + 'px';
+			fssss3.style.fontSize = fontSizeInput.value + 'px';
+			fssss4.style.fontSize = fontSizeInput.value + 'px';
+			fssss5.style.fontSize = fontSizeInput.value + 'px';
+		});
+
+		fontColorInput.addEventListener('input', () => {
+			fssss.style.color = fontColorInput.value;
+			fssss2.style.fontSize = fontColorInput.value;
+			fssss3.style.fontSize = fontColorInput.value;
+			fssss4.style.fontSize = fontColorInput.value;
+			fssss5.style.fontSize = fontColorInput.value;
+		});
+
+		bgColorInput.addEventListener('input', () => {
+			document.body.style.backgroundColor = bgColorInput.value;
+		});
+	</script>
+
+	<!--scrolling js-->
+	<script src="/static/frist/js/jquery.nicescroll.js"></script>
+	<script src="/static/frist/js/scripts.js"></script>
+
+	<!-- smooth scrolling -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+		/*
+			var defaults = {
+			containerID: 'toTop', // fading element id
+			containerHoverID: 'toTopHover', // fading element hover id
+			scrollSpeed: 1200,
+			easingType: 'linear' 
+			};
+		*/								
+		$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+	</script>
+	<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+	<div class="not-for-pdf">
+		<button id="downloadPdfButton" class="btn btn-primary" >下载简历</button>
+		<button class="btn btn-primary"><a href="http://127.0.0.1:8000/" style="color: white;">回到主页</a></button>
+		<button class="btn btn-primary" onclick="savePage()">分享简历</button>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        var downloadPdfButton = document.getElementById('downloadPdfButton');
+        downloadPdfButton.addEventListener('click', function() {
+          // 首先，隐藏所有不需要转换的元素
+          document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+            el.style.display = 'none';
+          });
+          // 开始转换
+          html2canvas(document.body).then(function(canvas) {
+            // 恢复隐藏元素的显示状态
+            document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+              el.style.display = '';
+            });
+            // 建立pdf文件
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', 'a4');
+            pdf.addImage(imgData, 'PNG', 0, 0, 211, 298);
+            pdf.save("download.pdf");
+          });
+        });
+
+        function generateString() {
+
+}
+
+        function savePage() {
+			  // 获取当前网页的HTML代码
+			  var htmlCode = document.documentElement.innerHTML;
+
+			  // 创建XMLHttpRequest对象
+			  var xhr = new XMLHttpRequest();
+			  xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				  // 将视图函数返回的文件名保存在变量中
+				  var fileName = xhr.responseText;
+				  alert("复制以下链接，分享给好友即可在线查看简历网页：http:127.0.0.1:8000/view_page/" + fileName);
+				  // 跳转到在线查看页面
+				  window.open('/view_page/' + fileName);
+				}
+			  }
+
+			  // 获取CSRF令牌
+			  var csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+			  // 发送POST请求到视图函数
+			  xhr.open('POST', '/save_page/');
+			  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			  // 将CSRF令牌添加到请求头中
+			  xhr.setRequestHeader('X-CSRFToken', csrfToken);
+			  xhr.send('html_code=' + encodeURIComponent(htmlCode));
+			}
+    </script>
+
+</body>
+</html>

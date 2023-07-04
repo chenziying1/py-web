@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+	<title>样式修改</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		:root {
+			--primary-color: #007bff;
+			--secondary-color: #6c757d;
+			--font-size: 16px;
+			--background-color: #e0e0e0;
+			--color: #333;
+		}
+
+		.my-div {
+			background-color: var(--background-color);
+			color: var(--color);
+			font-size: var(--font-size);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 my-div">
+				<p>这是一个文本段落。</p>
+
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+					<label>选择字体大小：</label>
+					<select id="font-size-select" class="form-control">
+						<option value="16px" selected>16px</option>
+						<option value="20px">20px</option>
+						<option value="24px">24px</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>选择字体颜色：</label>
+					<select id="font-color-select" class="form-control">
+						<option value="#333" selected>黑色</option>
+						<option value="#007bff">蓝色</option>
+						<option value="#28a745">绿色</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>选择背景颜色：</label>
+					<select id="bg-color-select" class="form-control">
+						<option value="#e0e0e0" selected>默认灰色</option>
+						<option value="#007bff">蓝色</option>
+						<option value="#28a745">绿色</option>
+					</select>
+				</div>
+	<script>
+		// 获取下拉框元素并添加事件监听器
+		document.getElementById('font-size-select').addEventListener('change', function() {
+			document.documentElement.style.setProperty('--font-size', this.value);
+		});
+		document.getElementById('font-color-select').addEventListener('change', function() {
+			document.documentElement.style.setProperty('--color', this.value);
+		});
+		document.getElementById('bg-color-select').addEventListener('change', function() {
+			document.documentElement.style.setProperty('--background-color', this.value);
+		});
+	</script>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<root>
+	<products>
+		<product uuid = "123">
+			<id>10000</id>
+			<name>iphone</name>
+			<price>9999</price>
+		</product>
+		<product uuid = "456">
+			<id>20000</id>
+			<name>特斯拉</name>
+			<price>99998</price>
+		</product>
+		<product uuid = "789">
+			<id>30000</id>
+			<name>iphone10</name>
+			<price>69999</price>
+		</product>
+	</products>
+</root>

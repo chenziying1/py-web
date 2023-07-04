@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django 语音识别</title>
+    <link rel="stylesheet" href="static/js/index.css">
+</head>
+<body>
+    <div id="speechContainer">
+        <h1>Upload new File</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" />
+            <br>
+            <input type="submit" id="submitbutton" value="Transcribe" />
+        </form>
+    </div>
+    {% if transcript != "" %}
+        <div id="speechTranscriptContainer">
+            <h1>Transcript</h1>
+            <p id="seechtext">{{transcript}}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

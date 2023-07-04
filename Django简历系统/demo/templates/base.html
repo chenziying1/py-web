@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/static/images/favicon.ico">
+     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>
+        在线简历
+        {% block title_block %}
+           - Study with Django!
+        {% endblock %}
+    </title>
+    {% block head_block %}
+    {% endblock %}
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">在线简历</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">主页</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">关于</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- 主体内容 -->
+    <div>
+        {% block body_block %}
+        {% endblock %}
+    </div>
+
+  <!--
+    <hr />
+        <a href="/add_category/">修改简历</a>
+        <button id="downloadPdfButton" class="btn btn-primary">下载PDF</button>
+    <hr />
+  -->
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!--
+    <script>
+        var downloadPdfButton = document.getElementById('downloadPdfButton');
+        downloadPdfButton.addEventListener('click', function() {
+          // 首先，隐藏所有不需要转换的元素
+          document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+            el.style.display = 'none';
+          });
+          // 开始转换
+          html2canvas(document.body).then(function(canvas) {
+            // 恢复隐藏元素的显示状态
+            document.querySelectorAll('.not-for-pdf').forEach(function(el) {
+              el.style.display = '';
+            });
+            // 建立pdf文件
+            var imgData = canvas.toDataURL('image/png');
+            var pdf = new jsPDF('p', 'mm', 'a4');
+            pdf.addImage(imgData, 'PNG', 0, 0, 211, 298);
+            pdf.save("download.pdf");
+          });
+        });
+    </script>
+    -->
+
+
+  </body>
+</html>

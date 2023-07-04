@@ -1,0 +1,21 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{title}} -- good</title>
+        {% else %}
+        <title>weclome to microblog!</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Microblog:
+            <a href="index.html">home</a>
+            <a href="login.html">login</a>
+        </div>
+        <h1>hello,{{user.username}}!</h1>
+
+        {% block content %}
+
+        {% endblock %}
+    </body>
+</html>

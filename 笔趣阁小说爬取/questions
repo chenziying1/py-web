@@ -1,0 +1,33 @@
+#re.findall()无法识别换行符
+#<div id="chaptercontent" class="Readarea ReadAjax_content">(.*?)
+    请收藏本站：https://www.quge7.cc。笔趣阁手机版：https://m.quge7.cc <br /><br />
+
+'''
+    https://www.quge7.cc/book/89536/
+    https://www.quge7.cc/book/89536/1.html
+    https://www.quge7.cc/book/89536/485.html
+'''
+
+
+css选择器获取标签文本
+https://www.codenong.com/40985060/
+https://parsel.readthedocs.io/en/latest/parsel.html#module-parsel.selector
+代码：
+response.css('mytag::text')
+    book_title = selectors.css('.title::text').get()
+
+#book_url = "https://www.quge7.cc/book/89536/"
+#get_onebook(book_url)
+#https://www.quge7.cc/map/271.html
+
+
+'''
+1.爬取一本小说
+    https://www.quge7.cc/
+    先获取单章节
+    1.确定需求：确定爬取的网页链接
+    2.发送请求：
+    3.获取数据：获取源代码
+    4.保存数据
+2.爬取全部小说
+'''
