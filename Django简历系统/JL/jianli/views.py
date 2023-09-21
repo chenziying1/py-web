@@ -10,7 +10,7 @@ import os
 
 
 def frist(request):
-    return render(request,'frist.html')
+    return render(request,'login.html')
 
 def show_category(request):
     return render(request, 'demo.html')
@@ -36,7 +36,7 @@ def fristcontact(request):
             file = request.FILES.get('file')
             media_url = "media/static/images/"
             form = ContactForm()
-            return render(request, 'frist.html', {'name': name,'email': email,'phone': phone,'message': message,'jiaoyubeijing': jiaoyubeijing,
+            return render(request, 'login.html', {'name': name,'email': email,'phone': phone,'message': message,'jiaoyubeijing': jiaoyubeijing,
                                            'gongzhuojingli': gongzhuojingli,'xiangmujingli': xiangmujingli,'jinengzhengshu': jinengzhengshu,
                                                   'file':file,'media_url':media_url})
     else:

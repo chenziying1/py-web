@@ -1,3 +1,5 @@
+#开源代码，一起改进，转载请注明出处，
+
 from flask import Flask,render_template,request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
@@ -15,7 +17,7 @@ def get_bot_response():
 
 @app.route("/")
 def index():
-	return render_template("frist.html")
+	return render_template("login.html")
 
 if __name__ == '__main__':
-	app.run(debug = True,port=45947)
+	app.run(debug = True,port=8880)

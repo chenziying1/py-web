@@ -18,7 +18,7 @@ def test():
     ]
     good = [1,2,3]
 
-    return render_template('frist.html', user=user, post=posts, good=good)
+    return render_template('login.html', user=user, post=posts, good=good)
 
 @app.route('/login')
 def login():

@@ -1,0 +1,42 @@
+<!-- templates/weather_crawler_app/task_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crawler Task List</title>
+</head>
+<body>
+    <h1>Crawler Task List</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Enabled</th>
+            <th>Running Time</th>
+            <th>Last Run</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+        <form method="post">
+            {% csrf_token %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.enabled }}</td>
+                <td>{{ task.running_time }}</td>
+                <td>{{ task.last_run }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                    {% if task.enabled %}
+                        <button type="submit" name="disable">Disable</button>
+                    {% else %}
+                        <button type="submit" name="enable">Enable</button>
+                    {% endif %}
+                    <button type="submit" name="run-now">Run Now</button>
+                </td>
+            </tr>
+            <input type="hidden" name="task_id" value="{{ task.id }}">
+        </form>
+        {% endfor %}
+    </table>
+</body>
+</html>

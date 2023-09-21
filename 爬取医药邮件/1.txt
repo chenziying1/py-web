@@ -1,0 +1,6 @@
+['https://pubmed.ncbi.nlm.nih.gov/32331970/', 'https://pubmed.ncbi.nlm.nih.gov/30380591/', 'https://pubmed.ncbi.nlm.nih.gov/34860723/', 'https://pubmed.ncbi.nlm.nih.gov/33775379/', 'https://pubmed.ncbi.nlm.nih.gov/31378996/', 'https://pubmed.ncbi.nlm.nih.gov/35333801/', 'https://pubmed.ncbi.nlm.nih.gov/32308956/', 'https://pubmed.ncbi.nlm.nih.gov/28534320/', 'https://pubmed.ncbi.nlm.nih.gov/35118029/', 'https://pubmed.ncbi.nlm.nih.gov/29923882/']
+
+{'https://pubmed.ncbi.nlm.nih.gov/32331970/': 'ljohnson@paragonvision.com'}
+{'https://pubmed.ncbi.nlm.nih.gov/33775379/': 'sj.vincent@qut.edu.au'}
+{'https://pubmed.ncbi.nlm.nih.gov/28534320/': 'youngla@ha.org.hk'}
+{'https://pubmed.ncbi.nlm.nih.gov/35118029/': 'moc.621@011whd'}

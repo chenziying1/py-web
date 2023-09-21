@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # time:2023/6/15 16:47
-# file demo.py
+# file index.py
 # outhor:czy
 # email:1060324818@qq.com
 
@@ -35,7 +35,7 @@ def index():
         print(target)
         transcript2 = target
 
-    return render_template("frist.html",transcript=transcript,transcript2=transcript2)
+    return render_template("login.html",transcript=transcript,transcript2=transcript2)
 
 
 if __name__ == "__main__":

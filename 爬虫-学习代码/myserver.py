@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-          return render_template('frist.html')
+          return render_template('login.html')
 
 @app.route('/data')
 def data():

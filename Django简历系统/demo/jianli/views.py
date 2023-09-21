@@ -4,7 +4,7 @@ from .forms import xingxiForm
 from .models import xingxi
 
 def frist(request):
-    return render(request,'frist.html')
+    return render(request,'login.html')
 
 def show_category(request):
     category_list = xingxi.objects.filter(name="good")
@@ -44,7 +44,7 @@ def contact(request):
             file = request.FILES.get('file')
             media_url = "media/static/images/"
             form = ContactForm()
-            return render(request, 'frist.html', {'name': name,'email': email,'phone': phone,'message': message,'jiaoyubeijing': jiaoyubeijing,
+            return render(request, 'login.html', {'name': name,'email': email,'phone': phone,'message': message,'jiaoyubeijing': jiaoyubeijing,
                                            'gongzhuojingli': gongzhuojingli,'xiangmujingli': xiangmujingli,'jinengzhengshu': jinengzhengshu,
                                                   'file':file,'media_url':media_url})
     else:

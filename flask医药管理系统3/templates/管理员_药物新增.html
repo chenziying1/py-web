@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Flask App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+
+<body>
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">医药管理系统</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+    <div class="navbar-nav">
+      <div class="nav-item text-nowrap">
+        <a class="nav-link px-3" href="#">查询</a>
+      </div>
+    </div>
+  </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3 sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('gly') }}">
+                  <span data-feather="home" class="align-text-bottom" ></span>
+                    主页
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('gly_hzgl') }}">
+                  <span data-feather="file" class="align-text-bottom"></span>
+                  患者管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('gly_ysgl') }}">
+                  <span data-feather="file" class="align-text-bottom"></span>
+                  医生管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('gly_hzgx') }}">
+                  <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                  患者权限管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('gly_ysqx') }}">
+                  <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                  医生权限管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('gly_ywgl') }}">
+                  <span data-feather="users" class="align-text-bottom"></span>
+                  药物管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                  <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+                  退出登录
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container mt-5">
+            <h1>药物新增</h1>
+            <form method="POST" action="/gly_ywglxz">
+                <div class="form-group">
+                    <label>药物名称</label>
+                    <input type="text" class="form-control" id="药物名称" name="药物名称" required>
+                </div>
+                <div class="form-group">
+                    <label >药物厂商</label>
+                    <input type="text" class="form-control" id="药物厂商" name="药物厂商" required>
+                </div>
+                <div class="form-group">
+                    <label >是否启用</label>
+                    <select class="form-control" id="是否启用" name="是否启用" required>
+                            <option>启用</option>
+                            <option>不启用</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+          </main>
+      </div>
+    </div>
+
+<!-- Your HTML as before -->
+
+
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ def change(request):
     number = ['桐人', '亚诗娜', '诗乃']
     txt = random.choice(number)
     context_dict = {'boldmessage': txt}
-    return render(request, 'frist.html', context=context_dict)
+    return render(request, 'login.html', context=context_dict)
 
 def index(request):
-    return render(request, 'frist.html')
+    return render(request, 'login.html')

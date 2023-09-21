@@ -3,19 +3,20 @@
 # file app.py.py
 # outhor:czy
 # email:1060324818@qq.com
+import os
 
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-
 
 st.set_page_config(page_title="Sales Dashboard", page_icon=":bar_chart:", layout="wide")
 
 
 @st.cache
 def get_data_from_excel():
+    file_path = os.path.join(os.path.dirname(__file__), "supermarkt_sales.xlsx")
     df = pd.read_excel(
-        io="supermarkt_sales.xlsx",
+        io=file_path,
         engine="openpyxl",
         sheet_name="Sales",
         skiprows=3,
@@ -26,8 +27,8 @@ def get_data_from_excel():
     df["hour"] = pd.to_datetime(df["Time"], format="%H:%M:%S").dt.hour
     return df
 
-df = get_data_from_excel()
 
+df = get_data_from_excel()
 
 st.sidebar.header("Please Filter Here:")
 city = st.sidebar.multiselect(
@@ -52,10 +53,8 @@ df_selection = df.query(
     "City == @city & Customer_type ==@customer_type & Gender == @gender"
 )
 
-
 st.title(":bar_chart: Sales Dashboard")
 st.markdown("##")
-
 
 total_sales = int(df_selection["Total"].sum())
 average_rating = round(df_selection["Rating"].mean(), 1)
@@ -75,9 +74,9 @@ with right_column:
 
 st.markdown("""---""")
 
-
 sales_by_product_line = (
-    df_selection.groupby(by=["Product line"]).sum()[["Total"]].sort_values(by="Total")
+    df_selection.groupby(by=["Product line"]).sum(numeric_only=True)[["Total"]].sort_values(by="Total")
+
 )
 fig_product_sales = px.bar(
     sales_by_product_line,
@@ -92,7 +91,6 @@ fig_product_sales.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis=(dict(showgrid=False))
 )
-
 
 sales_by_hour = df_selection.groupby(by=["hour"]).sum()[["Total"]]
 fig_hourly_sales = px.bar(
@@ -109,11 +107,9 @@ fig_hourly_sales.update_layout(
     yaxis=(dict(showgrid=False)),
 )
 
-
 left_column, right_column = st.columns(2)
 left_column.plotly_chart(fig_hourly_sales, use_container_width=True)
 right_column.plotly_chart(fig_product_sales, use_container_width=True)
-
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """

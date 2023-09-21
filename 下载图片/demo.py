@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # time:2023/6/18 16:23
-# file demo.py
+# file index.py
 # outhor:czy
 # email:1060324818@qq.com
 import requests

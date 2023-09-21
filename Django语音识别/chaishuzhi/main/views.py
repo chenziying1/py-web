@@ -34,7 +34,7 @@ def index(request):
                 print("识别错误; {0}".format(e))
             transcript = text
 
-    return render(request,"frist.html", context={"transcript":transcript})
+    return render(request,"login.html", context={"transcript":transcript})
 
 
 """

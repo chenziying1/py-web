@@ -5,7 +5,7 @@ from .froms import messageForm
 def index(request):
     message_list = message.objects.all()
     context_dict = {'categories': message_list}
-    return render(request, 'frist.html', context_dict)
+    return render(request, 'index.html', context_dict)
 
 def add_message(request):
     form = messageForm()

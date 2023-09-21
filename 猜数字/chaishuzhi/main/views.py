@@ -28,8 +28,8 @@ def index(request):
             "text":text,
             "chishu":chishu
         }
-        return render(request,"frist.html",context=content)
-    return render(request,"frist.html",context={"chishu":5})
+        return render(request,"login.html",context=content)
+    return render(request,"login.html",context={"chishu":5})
 
 
 """
@@ -38,9 +38,9 @@ def index(request):
 def genxing(request):
     global chishu
     chishu = 5
-    return render(request,"frist.html",context={"chishu":5})
+    return render(request,"login.html",context={"chishu":5})
 """
 
 def genxing(request):
 
-    return render(request,"frist.html",context={"chishu":5})
+    return render(request,"login.html",context={"chishu":5})

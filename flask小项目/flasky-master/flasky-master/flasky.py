@@ -52,7 +52,7 @@ def test(coverage, test_names):
         basedir = os.path.abspath(os.path.dirname(__file__))
         covdir = os.path.join(basedir, 'tmp/coverage')
         COV.html_report(directory=covdir)
-        print('HTML version: file://%s/frist.html' % covdir)
+        print('HTML version: file://%s/login.html' % covdir)
         COV.erase()
 
 

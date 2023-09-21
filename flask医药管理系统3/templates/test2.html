@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask and Bootstrap Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Flask and Bootstrap Example</h2>
+        <form id="myForm" class="form-inline">
+
+                <label for="inputText">Enter Text:</label>
+                <input type="text" class="form-control" id="inputText" name="input_text" required>
+
+            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+        </form>
+        <form method="post" class="form-inline form-control-dark w-100 rounded-0 border-0">
+    <input class="form-control form-control-dark rounded-0 border-0 mr-2" type="text" placeholder="Search" aria-label="Search" id="input_text" name="input_text">
+    <button class="btn btn-primary btn-sm" type="submit">Inquire</button>
+</form>
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="NavBar-Brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Pharmaceutical Management System</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <form method="post" class="form-inline form-control-dark">
+        <input class="form-control form-control-dark rounded-0 border-0 mr-2" type="text" placeholder="Search" aria-label="Search" id="input_text" name="input_text">
+        <button class="btn btn-primary btn-sm" type="submit">Inquire</button>
+    </form>
+</header>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#submitButton').click(function() {
+                var inputText = $('#inputText').val();
+                $.post('/', { input_text: inputText }, function(data) {
+                    alert(data);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

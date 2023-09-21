@@ -31,7 +31,7 @@ def index():
             return "There is an issue"
     else:
         tasks = Todo.query.order_by(Todo.pub_date).all()
-        return render_template("frist.html", tasks=tasks)
+        return render_template("login.html", tasks=tasks)
 
 
 @app.route("/delete/<int:id>")
@@ -59,7 +59,7 @@ def update(id):
     else:
         tasks = Todo.query.order_by(Todo.pub_date).all()
 
-        return render_template("frist.html", update_task=task, tasks=tasks)
+        return render_template("login.html", update_task=task, tasks=tasks)
 
 
 if __name__ == "__main__":

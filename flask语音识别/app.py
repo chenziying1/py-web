@@ -46,7 +46,7 @@ def index():
                 print("识别错误; {0}".format(e))
             transcript = text
 
-    return render_template("frist.html",transcript=transcript)
+    return render_template("login.html",transcript=transcript)
 
 
 if __name__ == "__main__":
